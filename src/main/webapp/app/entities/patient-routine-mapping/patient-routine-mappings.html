@@ -1,0 +1,64 @@
+<div>
+    <h2>Patient Routine Mappings</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="patient-routine-mapping.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Patient Routine Mapping
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Routine Id</span></th>
+                    <th><span>Patient Id</span></th>
+                    <th><span>Created Date</span></th>
+                    <th><span>Modified Date</span></th>
+                    <th><span>Is Active</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="patientRoutineMapping in vm.patientRoutineMappings track by patientRoutineMapping.id">
+                    <td><a ui-sref="patient-routine-mapping-detail({id:patientRoutineMapping.id})">{{patientRoutineMapping.id}}</a></td>
+                    <td>{{patientRoutineMapping.routineId}}</td>
+                    <td>{{patientRoutineMapping.patientId}}</td>
+                    <td>{{patientRoutineMapping.createdDate | date:'medium'}}</td>
+                    <td>{{patientRoutineMapping.modifiedDate | date:'medium'}}</td>
+                    <td>{{patientRoutineMapping.isActive}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="patient-routine-mapping-detail({id:patientRoutineMapping.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="patient-routine-mapping.edit({id:patientRoutineMapping.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="patient-routine-mapping.delete({id:patientRoutineMapping.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

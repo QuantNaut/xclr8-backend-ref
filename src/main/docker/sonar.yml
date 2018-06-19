@@ -1,0 +1,8 @@
+version: '2'
+services:
+    xclr8-sonar:
+        container_name: xclr8-sonar
+        image: sonarqube:6.1-alpine
+        ports:
+            - 9000:9000
+            - 9092:9092

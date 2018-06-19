@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Goals</span> {{vm.goals.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Session Id</span></dt>
+        <dd>
+            <span>{{vm.goals.sessionId}}</span>
+        </dd>
+        <dt><span>Doctor Id</span></dt>
+        <dd>
+            <span>{{vm.goals.doctorId}}</span>
+        </dd>
+        <dt><span>Patient Id</span></dt>
+        <dd>
+            <span>{{vm.goals.patientId}}</span>
+        </dd>
+        <dt><span>Routine Id</span></dt>
+        <dd>
+            <span>{{vm.goals.routineId}}</span>
+        </dd>
+        <dt><span>Frequency Of Exercise</span></dt>
+        <dd>
+            <span>{{vm.goals.frequencyOfExercise}}</span>
+        </dd>
+        <dt><span>Repetition Of Exercise</span></dt>
+        <dd>
+            <span>{{vm.goals.repetitionOfExercise}}</span>
+        </dd>
+        <dt><span>Degree Of Motion</span></dt>
+        <dd>
+            <span>{{vm.goals.degreeOfMotion}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="goals-detail.edit({id:vm.goals.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

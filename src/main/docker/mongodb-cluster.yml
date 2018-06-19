@@ -1,0 +1,17 @@
+version: '2'
+services:
+    xclr8-mongodb:
+        container_name: xclr8-mongodb
+        image: mongo:3.2.10
+        ports:
+            - "27017:27017"
+        command: mongos --configdb xclr8-mongodb-config
+    xclr8-mongodb-node:
+        build:
+            context: .
+            dockerfile: mongodb/MongoDB.Dockerfile
+        command: mongod --replSet rs1 --noprealloc --smallfiles
+    xclr8-mongodb-config:
+        image: mongo:3.2.10
+        container_name: xclr8-mongodb-config
+        command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db

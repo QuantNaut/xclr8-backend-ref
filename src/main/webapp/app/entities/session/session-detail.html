@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Session</span> {{vm.session.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Session Name</span></dt>
+        <dd>
+            <span>{{vm.session.sessionName}}</span>
+        </dd>
+        <dt><span>Patient Username</span></dt>
+        <dd>
+            <span>{{vm.session.patientUsername}}</span>
+        </dd>
+        <dt><span>Doctor Username</span></dt>
+        <dd>
+            <span>{{vm.session.doctorUsername}}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+            <span>{{vm.session.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+            <span>{{vm.session.endDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="session-detail.edit({id:vm.session.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

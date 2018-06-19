@@ -1,0 +1,124 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySensorDataLabel">Create or edit a Sensor Data</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.sensorData.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.sensorData.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_patientUsername">Patient Username</label>
+            <input type="text" class="form-control" name="patientUsername" id="field_patientUsername"
+                    ng-model="vm.sensorData.patientUsername"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_doctorUsername">Doctor Username</label>
+            <input type="text" class="form-control" name="doctorUsername" id="field_doctorUsername"
+                    ng-model="vm.sensorData.doctorUsername"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_mode">Mode</label>
+            <input type="text" class="form-control" name="mode" id="field_mode"
+                    ng-model="vm.sensorData.mode"
+                    required />
+            <div ng-show="editForm.mode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.mode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sessionId">Session Id</label>
+            <input type="text" class="form-control" name="sessionId" id="field_sessionId"
+                    ng-model="vm.sensorData.sessionId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_routine">Routine</label>
+            <input type="text" class="form-control" name="routine" id="field_routine"
+                    ng-model="vm.sensorData.routine"
+                    required />
+            <div ng-show="editForm.routine.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.routine.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                    ng-model="vm.sensorData.createdBy"
+                    required />
+            <div ng-show="editForm.createdBy.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.createdBy.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_xData">X Data</label>
+            <input type="text" class="form-control" name="xData" id="field_xData"
+                    ng-model="vm.sensorData.xData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_yData">Y Data</label>
+            <input type="text" class="form-control" name="yData" id="field_yData"
+                    ng-model="vm.sensorData.yData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_zData">Z Data</label>
+            <input type="text" class="form-control" name="zData" id="field_zData"
+                    ng-model="vm.sensorData.zData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_wData">W Data</label>
+            <input type="text" class="form-control" name="wData" id="field_wData"
+                    ng-model="vm.sensorData.wData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dateAndTime">Date And Time</label>
+                <div class="input-group">
+                    <input id="field_dateAndTime" type="text" class="form-control" name="dateAndTime" datetime-picker="{{dateformat}}" ng-model="vm.sensorData.dateAndTime" is-open="vm.datePickerOpenStatus.dateAndTime"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateAndTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.dateAndTime.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dateAndTime.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.dateAndTime.$error.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

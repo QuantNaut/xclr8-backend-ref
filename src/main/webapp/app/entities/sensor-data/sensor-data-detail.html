@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span>Sensor Data</span> {{vm.sensorData.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Patient Username</span></dt>
+        <dd>
+            <span>{{vm.sensorData.patientUsername}}</span>
+        </dd>
+        <dt><span>Doctor Username</span></dt>
+        <dd>
+            <span>{{vm.sensorData.doctorUsername}}</span>
+        </dd>
+        <dt><span>Mode</span></dt>
+        <dd>
+            <span>{{vm.sensorData.mode}}</span>
+        </dd>
+        <dt><span>Session Id</span></dt>
+        <dd>
+            <span>{{vm.sensorData.sessionId}}</span>
+        </dd>
+        <dt><span>Routine</span></dt>
+        <dd>
+            <span>{{vm.sensorData.routine}}</span>
+        </dd>
+        <dt><span>Created By</span></dt>
+        <dd>
+            <span>{{vm.sensorData.createdBy}}</span>
+        </dd>
+        <dt><span>X Data</span></dt>
+        <dd>
+            <span>{{vm.sensorData.xData}}</span>
+        </dd>
+        <dt><span>Y Data</span></dt>
+        <dd>
+            <span>{{vm.sensorData.yData}}</span>
+        </dd>
+        <dt><span>Z Data</span></dt>
+        <dd>
+            <span>{{vm.sensorData.zData}}</span>
+        </dd>
+        <dt><span>W Data</span></dt>
+        <dd>
+            <span>{{vm.sensorData.wData}}</span>
+        </dd>
+        <dt><span>Date And Time</span></dt>
+        <dd>
+            <span>{{vm.sensorData.dateAndTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sensor-data-detail.edit({id:vm.sensorData.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

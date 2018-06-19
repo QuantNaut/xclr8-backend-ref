@@ -1,0 +1,76 @@
+<div>
+    <h2>Notes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="notes.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Notes
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="header"><span>Header</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currentCondition"><span>Current Condition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="goals"><span>Goals</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subjective"><span>Subjective</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="objective"><span>Objective</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="assessment"><span>Assessment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plan"><span>Plan</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="patientId"><span>Patient Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="routineId"><span>Routine Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="notes in vm.notes track by notes.id">
+                    <td><a ui-sref="notes-detail({id:notes.id})">{{notes.id}}</a></td>
+                    <td>{{notes.header}}</td>
+                    <td>{{notes.currentCondition}}</td>
+                    <td>{{notes.goals}}</td>
+                    <td>{{notes.subjective}}</td>
+                    <td>{{notes.objective}}</td>
+                    <td>{{notes.assessment}}</td>
+                    <td>{{notes.plan}}</td>
+                    <td>{{notes.patientId}}</td>
+                    <td>{{notes.routineId}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="notes-detail({id:notes.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="notes.edit({id:notes.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="notes.delete({id:notes.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

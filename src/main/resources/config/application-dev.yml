@@ -1,0 +1,86 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+
+spring:
+    profiles:
+        active: dev
+        include: swagger
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: false # we use gulp + BrowserSync for livereload
+    jackson:
+        serialization.indent_output: true
+    data:
+        mongodb:
+#            uri: mongodb://user:user@ds153699.mlab.com:53699/xclr8
+#            database: xclr8
+            uri: ${DB:mongodb://xclr8:15082014@ds23xc9638.mlab.com:39638/xclr8-api}
+            database: xclr8-api
+    mail:
+        host: email-smtp.us-east-1.amazonaws.com
+        port: 465
+        username: AKIAJ2VFFLJWQRSVHJQA
+        password: AhlqY8j8yG/CaYJRRdFiDomLqKqZwIiGc0B0/F5L8y+X
+        protocol: smtps
+        tls: true
+        auth: true
+    messages:
+        cache-seconds: 1
+    thymeleaf:
+        cache: false
+
+server:
+    port: ${PORT:8080}
+
+
+aws:
+    sns:
+        accessKey: AKIAJ2VFFLJWQRSVHJQA
+        secretKey: AhlqY8j8yG/CaYJRRdFiDomLqKqZwIiGc0B0/F5L8y+X
+
+
+# ===================================================================
+# JHipster specific properties
+# ===================================================================
+
+jhipster:
+    security:
+        authentication:
+            jwt:
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 24 hours
+                tokenValidityInSeconds: 86400
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: shenju.lal@perfomatix.com
+        baseUrl: http://127.0.0.1:8080
+    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
+        jmx.enabled: true
+        graphite:
+            enabled: false
+            host: localhost
+            port: 2003
+            prefix: xclr8
+        prometheus:
+            enabled: false
+            endpoint: /prometheusMetrics
+        logs: # Reports Dropwizard metrics in the logs
+            enabled: false
+            reportFrequency: 60 # in seconds
+    logging:
+        logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+            enabled: false
+            host: localhost
+            port: 5000
+            queueSize: 512

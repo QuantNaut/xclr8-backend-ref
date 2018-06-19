@@ -1,0 +1,17 @@
+version: '2'
+services:
+    xclr8-app:
+        image: xclr8
+        external_links:
+            - xclr8-mongodb:mongodb
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=xclr8
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    xclr8-mongodb:
+        extends:
+            file: mongodb.yml
+            service: xclr8-mongodb

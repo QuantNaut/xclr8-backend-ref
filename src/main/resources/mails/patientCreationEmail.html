@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.patient.creation.title}">JHipster activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.activation.greeting(${user.login})}">
+            Dear
+        </p>
+        <p th:text="#{email.patient.creation.text}">
+            Your JHipster account has been created, please click on the URL below to activate it:
+        </p>
+        <p th:text="#{email.user.username(${user.login})}">
+            Username
+        </p>
+        <p th:text="#{email.user.password(${user.password})}">
+            Password
+        </p>
+        <p>
+            <span th:text="#{email.activation.text2}">Regards, </span>
+            <br/>
+            <em th:text="#{email.signature}">JHipster.</em>
+        </p>
+    </body>
+</html>

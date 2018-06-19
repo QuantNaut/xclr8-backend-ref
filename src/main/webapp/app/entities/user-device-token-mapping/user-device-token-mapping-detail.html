@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>User Device Token Mapping</span> {{vm.userDeviceTokenMapping.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Device Token</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.deviceToken}}</span>
+        </dd>
+        <dt><span>User Id</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.userId}}</span>
+        </dd>
+        <dt><span>Device Type</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.deviceType}}</span>
+        </dd>
+        <dt><span>Created Date</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.createdDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Updated Date</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.updatedDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Is Active</span></dt>
+        <dd>
+            <span>{{vm.userDeviceTokenMapping.isActive}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="user-device-token-mapping-detail.edit({id:vm.userDeviceTokenMapping.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

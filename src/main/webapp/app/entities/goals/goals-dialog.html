@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myGoalsLabel">Create or edit a Goals</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.goals.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.goals.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sessionId">Session Id</label>
+            <input type="text" class="form-control" name="sessionId" id="field_sessionId"
+                    ng-model="vm.goals.sessionId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_doctorId">Doctor Id</label>
+            <input type="text" class="form-control" name="doctorId" id="field_doctorId"
+                    ng-model="vm.goals.doctorId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_patientId">Patient Id</label>
+            <input type="text" class="form-control" name="patientId" id="field_patientId"
+                    ng-model="vm.goals.patientId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_routineId">Routine Id</label>
+            <input type="text" class="form-control" name="routineId" id="field_routineId"
+                    ng-model="vm.goals.routineId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_frequencyOfExercise">Frequency Of Exercise</label>
+            <input type="text" class="form-control" name="frequencyOfExercise" id="field_frequencyOfExercise"
+                    ng-model="vm.goals.frequencyOfExercise"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_repetitionOfExercise">Repetition Of Exercise</label>
+            <input type="text" class="form-control" name="repetitionOfExercise" id="field_repetitionOfExercise"
+                    ng-model="vm.goals.repetitionOfExercise"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_degreeOfMotion">Degree Of Motion</label>
+            <input type="text" class="form-control" name="degreeOfMotion" id="field_degreeOfMotion"
+                    ng-model="vm.goals.degreeOfMotion"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Video Session</span> {{vm.videoSession.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Doctor Id</span></dt>
+        <dd>
+            <span>{{vm.videoSession.doctorId}}</span>
+        </dd>
+        <dt><span>Patient Id</span></dt>
+        <dd>
+            <span>{{vm.videoSession.patientId}}</span>
+        </dd>
+        <dt><span>Video Session Token</span></dt>
+        <dd>
+            <span>{{vm.videoSession.videoSessionToken}}</span>
+        </dd>
+        <dt><span>Video Session Id</span></dt>
+        <dd>
+            <span>{{vm.videoSession.videoSessionId}}</span>
+        </dd>
+        <dt><span>Created Date</span></dt>
+        <dd>
+            <span>{{vm.videoSession.createdDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="video-session-detail.edit({id:vm.videoSession.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

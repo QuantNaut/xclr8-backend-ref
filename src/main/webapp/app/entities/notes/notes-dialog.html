@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myNotesLabel">Create or edit a Notes</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.notes.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.notes.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_header">Header</label>
+            <input type="text" class="form-control" name="header" id="field_header"
+                    ng-model="vm.notes.header"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_currentCondition">Current Condition</label>
+            <input type="text" class="form-control" name="currentCondition" id="field_currentCondition"
+                    ng-model="vm.notes.currentCondition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_goals">Goals</label>
+            <input type="text" class="form-control" name="goals" id="field_goals"
+                    ng-model="vm.notes.goals"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_subjective">Subjective</label>
+            <input type="text" class="form-control" name="subjective" id="field_subjective"
+                    ng-model="vm.notes.subjective"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_objective">Objective</label>
+            <input type="text" class="form-control" name="objective" id="field_objective"
+                    ng-model="vm.notes.objective"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_assessment">Assessment</label>
+            <input type="text" class="form-control" name="assessment" id="field_assessment"
+                    ng-model="vm.notes.assessment"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_plan">Plan</label>
+            <input type="text" class="form-control" name="plan" id="field_plan"
+                    ng-model="vm.notes.plan"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_patientId">Patient Id</label>
+            <input type="text" class="form-control" name="patientId" id="field_patientId"
+                    ng-model="vm.notes.patientId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_routineId">Routine Id</label>
+            <input type="text" class="form-control" name="routineId" id="field_routineId"
+                    ng-model="vm.notes.routineId"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
